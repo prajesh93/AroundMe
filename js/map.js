@@ -1,4 +1,5 @@
-
+      //This is the callback function which is called by the google API.
+      //This function will return the current postion coordinates (latitude and longitude)
       function initMap() {
 
           if (navigator.geolocation) {

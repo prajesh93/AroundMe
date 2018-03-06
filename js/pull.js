@@ -1,6 +1,7 @@
 (function ($) {
-    
+        
     $('button').on('click', function () {
+        //Getting the lattude and longitude of the current location which was returned from the Google API
         var a=document.getElementById("33").innerHTML;
         var b=document.getElementById("34").innerHTML;
         var choice = $('select option:selected').text();
@@ -10,7 +11,9 @@
         
         // add spinner to indicate something is happening
         $('<i class="fa fa-refresh fa-spin"/>').appendTo('body');
+        // WHen the user selects 'Bored' as an option in the dropdown meu
         if(choice.substring(4,choice.length)=="bored"){
+            // Calling the TripAdvisor API and parsing the data to the list 
         $.getJSON('http://api.tripadvisor.com/api/partner/2.0/map/'+a+','+b+'/attractions?key=defc1a4e-90db-44a1-8154-807593947f66', function (data) {
             var items = [],
                 $ul;
@@ -60,9 +63,10 @@
             //append list items to list
             $ul.append(items);
         });}
-        
+        // WHen the user selects 'Hungry' as an option in the dropdown meu
         if(choice.substring(4,choice.length)=="hungry"){
-        $.getJSON('http://api.tripadvisor.com/api/partner/2.0/map/'+a+','+b+'/restaurants?key=defc1a4e-90db-44a1-8154-807593947f66', function (data) {
+            // Calling the TripAdvisor API and parsing the data to the list
+            $.getJSON('http://api.tripadvisor.com/api/partner/2.0/map/'+a+','+b+'/restaurants?key=defc1a4e-90db-44a1-8154-807593947f66', function (data) {
             var items = [],
                 $ul;
             
